@@ -82,3 +82,9 @@ DiagramGenerationAgent --> WorkflowOrchestrator: UML Diagram
 WorkflowOrchestrator --> AgentController: Response (Code + Diagram)
 AgentController --> User: Output via Swagger
 @enduml
+
+
+
+## 📜 License & Copyright
+© 2026 Aman Kumar. All rights reserved.  
+This repository and its contents are protected. Unauthorized copying, modification, or distribution is prohibited without explicit permission.  
