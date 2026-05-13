@@ -1,0 +1,54 @@
+# Employee Management System Requirements
+
+Entity: Employee
+Description: Represents an employee record in the organization.
+
+Fields:
+- id (Long, Primary Key, Auto Increment)
+- firstName (String, required, max length 50)
+- lastName (String, required, max length 50)
+- email (String, required, unique, valid format)
+- phone (String, required, length=10)
+- department (String, required)
+- designation (String, required)
+- dateOfJoining (LocalDate, required)
+- salary (Double, required, must be positive)
+
+Constraints:
+- Email must be unique and valid.
+- Phone must be exactly 10 digits.
+- Salary must be greater than 0.
+
+Operations:
+- Create Employee
+  Endpoint: POST /api/employees
+  Description: Inserts a new employee record into the employees table.
+  Request Body: JSON with employee fields.
+  Response: Employee object with auto-generated ID.
+
+- Fetch All Employees
+  Endpoint: GET /api/employees
+  Description: Returns list of all employees.
+  Response: Array of employee objects.
+
+- Fetch Employee by ID
+  Endpoint: GET /api/employees/{id}
+  Description: Returns employee details for given ID.
+  Response: Employee object or 404 if not found.
+
+- Update Employee
+  Endpoint: PUT /api/employees/{id}
+  Description: Updates employee record for given ID.
+  Request Body: JSON with updated fields.
+  Response: Updated employee object.
+
+- Delete Employee
+  Endpoint: DELETE /api/employees/{id}
+  Description: Deletes employee record for given ID.
+  Response: Success message.
+
+Database Schema:
+- Schema Name: employee_schema
+- Table Name: employees
+- Auto-create: If table does not exist, JPA/Hibernate must auto-create based on entity definition.
+- Property: spring.jpa.hibernate.ddl-auto=update
